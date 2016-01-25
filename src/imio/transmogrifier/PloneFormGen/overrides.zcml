@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier">
+
+    <transmogrifier:registerConfig
+        name="import"
+        title="Import pipeline configuration"
+        description="Customized for Plone 3.6 to Plone 4 content types content import pipeline."
+        configuration="import.cfg"
+    />
+</configure>

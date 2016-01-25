@@ -1,0 +1,32 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="imio.transmogrifier.PloneFormGen">
+
+  <include package="quintagroup.transmogrifier" file="meta.zcml" />
+  <include package="quintagroup.transmogrifier" />
+
+
+  <genericsetup:registerProfile
+      name="default"
+      title="imio.transmogrifier.PloneFormGen"
+      directory="profiles/default"
+      description="Installs the imio.transmogrifier.PloneFormGen add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="imio.transmogrifier.PloneFormGen-postInstall"
+      title="imio.transmogrifier.PloneFormGen post_install import step"
+      description="Post install import step from imio.transmogrifier.PloneFormGen"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <utility
+    component=".fix_utf-8.FixUTF8Section"
+    name="imio.transmogrifier.PloneFormGen.fix_utf-8"
+  />    
+  
+</configure>
