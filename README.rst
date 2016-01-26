@@ -6,12 +6,23 @@
 imio.transmogrifier.PloneFormGen
 ==============================================================================
 
-Tell me what your product does
+
+New blueprint to help Transmogrifier to migrate PloneFormGen objects.
+
 
 Features
 --------
 
-- Can be bullet points
+Add new blueprint thanks in @@pipeline-config :
+    
+    ...
+    referencesimporter
+    fix_utf-8
+    propertiesimporter
+    ...
+    
+[fix_utf-8]
+blueprint = imio.transmogrifier.PloneFormGen.fix_utf-8
 
 
 Examples
