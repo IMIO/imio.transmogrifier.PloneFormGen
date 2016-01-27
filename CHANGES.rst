@@ -5,7 +5,8 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- clean buildout.cfg
+- Add Products.PloneFormGen in setup.py install_requires
 
 
 0.2 (2016-01-26)
