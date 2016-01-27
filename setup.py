@@ -19,7 +19,7 @@ long_description = (
 
 setup(
     name='imio.transmogrifier.PloneFormGen',
-    version='0.3',
+    version='0.4.dev0',
     description="New blueprint to help Transmogrifier to migrate PloneFormGen objects.",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
