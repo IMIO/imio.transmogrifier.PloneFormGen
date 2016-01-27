@@ -16,7 +16,9 @@ class FixUTF8Section(object):
     implements(ISection)
 
     def __init__(self, transmogrifier, name, options, previous):
+        self.context = transmogrifier.context
         self.pathkey = defaultMatcher(options, 'path-key', name, 'path')
+        self.previous = previous
 
     def __iter__(self):
         """
@@ -26,6 +28,8 @@ class FixUTF8Section(object):
             pathkey = self.pathkey(*item.keys())[0]
             path = item[pathkey]
             obj = self.context.unrestrictedTraverse(path.lstrip('/'), None)
+            if obj is None:
+                yield item; continue
             if not obj.portal_type == 'FormCaptchaField' and not obj.portal_type == 'FormTextField' and not obj.portal_type == 'FormMailerAdapter' and not obj.portal_type == 'FormStringField' and not obj.portal_type ==  'FormSelectionField' and not obj.portal_type ==  'FormIntegerField':
                 yield item; continue
 
