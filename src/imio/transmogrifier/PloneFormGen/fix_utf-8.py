@@ -28,13 +28,14 @@ class FixUTF8Section(object):
             pathkey = self.pathkey(*item.keys())[0]
             path = item[pathkey]
             obj = self.context.unrestrictedTraverse(path.lstrip('/'), None)
-            if obj is None:
+            if path == '' or obj is None or obj.aq_parent is None:
                 yield item; continue
-            if not obj.portal_type == 'FormCaptchaField' and not obj.portal_type == 'FormTextField' and not obj.portal_type == 'FormMailerAdapter' and not obj.portal_type == 'FormStringField' and not obj.portal_type ==  'FormSelectionField' and not obj.portal_type ==  'FormIntegerField':
-                yield item; continue
-
+            else:
+                parent = obj.aq_parent
+                if parent.getPortalTypeName() != 'FormFolder':
+                    yield item; continue
             # Add specific treatment for PloneFormGen Items
-            # set utf8 fix for description/formQuestion PloneFormGen fields.
+            # method setDescription seem fixing utf8 error for PloneFormGen fields.
             description = obj.Description()
             obj.setDescription(description)
             yield item
