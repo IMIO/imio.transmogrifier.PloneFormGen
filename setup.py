@@ -49,7 +49,7 @@ setup(
         'collective.transmogrifier==1.4',
         'plone.app.transmogrifier==1.2',
         'quintagroup.transmogrifier==0.5',
-        'Products.PloneFormGen==1.7.16',
+        'Products.PloneFormGen>=1.7.16',
         'collective.captcha==1.7',
     ],
     extras_require={
